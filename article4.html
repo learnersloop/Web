@@ -4,44 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mandatory E-KYC Update for UDID Card (2026) | LearnersLoop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Styling - LearnersLoop Theme */
+        /* CSS Styling - LearnersLoop Theme Integrated */
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-dark: #1f2937;
-            --text-light: #4b5563;
-            --bg-light: #f3f4f6;
+            --primary-color: #3498db;      /* Matched with main site primary blue */
+            --secondary-color: #2c3e50;    /* Matched with main site secondary dark */
+            --bg-light: #f8fafc;           /* Matched with main site background */
+            --text-dark: #334155;          /* Matched with main site text color */
+            --text-light: #64748b;         /* Matched with main site muted text */
             --white: #ffffff;
             --accent-red: #dc2626;
             --accent-green: #16a34a;
+            --awareness-blue: #2563eb;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px;
+        }
+
+        /* --- Navbar (Exact Replica from Blogs Page) --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo a { font-size: 1.6rem; font-weight: 700; text-decoration: none; color: var(--secondary-color); }
+        .logo span { color: var(--primary-color); }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-links li a.active, .nav-links li a:hover { color: var(--primary-color); }
+
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; background: none; border: none; }
+        .bar { width: 25px; height: 3px; background: var(--secondary-color); margin: 4px 0; }
+
+        /* --- Article Layout Container --- */
+        .article-wrapper {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
             background: var(--white);
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 40px 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         /* Header Section */
-        header {
+        header.article-header {
             border-bottom: 2px solid var(--bg-light);
             padding-bottom: 20px;
             margin-bottom: 30px;
@@ -49,12 +84,12 @@
 
         .site-badge {
             display: inline-block;
-            background-color: var(--primary-color);
+            background-color: var(--awareness-blue);
             color: var(--white);
             padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            font-size: 0.75rem;
+            font-weight: 700;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -65,6 +100,7 @@
             color: var(--secondary-color);
             line-height: 1.3;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .meta-info {
@@ -83,15 +119,15 @@
         .featured-image {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         /* Article Content */
         p {
             margin-bottom: 20px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-dark);
         }
 
@@ -99,7 +135,7 @@
             background-color: #fef2f2;
             border-left: 4px solid var(--accent-red);
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 6px;
             margin: 25px 0;
         }
 
@@ -107,14 +143,16 @@
             margin-bottom: 0;
             color: #991b1b;
             font-weight: 500;
+            font-size: 1rem;
         }
 
         h2 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--secondary-color);
             margin: 35px 0 20px 0;
-            border-bottom: 1px solid var(--bg-light);
+            border-bottom: 2px solid var(--bg-light);
             padding-bottom: 8px;
+            font-weight: 700;
         }
 
         /* Step Guide Styling */
@@ -137,7 +175,7 @@
             position: absolute;
             left: 0;
             top: 2px;
-            background-color: var(--primary-color);
+            background-color: var(--awareness-blue);
             color: var(--white);
             width: 32px;
             height: 32px;
@@ -166,12 +204,13 @@
         .web-link {
             display: inline-block;
             background: #eff6ff;
-            color: var(--primary-color);
+            color: var(--awareness-blue);
             padding: 4px 10px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 5px;
+            font-size: 0.95rem;
         }
 
         .web-link:hover {
@@ -183,13 +222,14 @@
             background-color: #f0fdf4;
             border: 1px solid #bbf7d0;
             padding: 25px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin: 30px 0;
         }
 
         .contact-box h3 {
             color: var(--accent-green);
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .whatsapp-btn {
@@ -200,7 +240,8 @@
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 12px;
+            transition: 0.3s;
         }
 
         .whatsapp-btn:hover {
@@ -211,27 +252,42 @@
             background-color: #fffbeb;
             border-left: 4px solid #d97706;
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 1rem;
             margin-top: 30px;
         }
 
+        /* --- Footer --- */
         footer {
-            margin-top: 40px;
+            background: var(--secondary-color);
+            color: var(--white);
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--bg-light);
-            color: var(--text-light);
-            font-size: 0.9rem;
+            padding: 40px;
+            margin-top: 60px;
         }
 
         /* Responsive Design */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { padding: 10px 0; text-align: center; }
+            
+            .article-wrapper {
+                margin: 20px auto;
             }
             .container {
-                padding: 20px 15px;
+                padding: 25px 20px;
             }
             h1 {
                 font-size: 1.6rem;
@@ -241,109 +297,130 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="site-badge">LearnersLoop Awareness</div>
-            <h1>Important Information: Mandatory E-KYC Update for UDID Card</h1>
-            <div class="meta-info">
-                <span>Published Date: <strong>25 May 2026</strong></span>
-                <span>Author: <strong>Aditya Tiwari</strong></span>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Learners<span>Loop</span></a>
             </div>
-        </header>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html" class="active">Blogs</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
 
-        <!-- Featured Image -->
-        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80" alt="Digital Security and Documentation" class="featured-image">
+    <main class="article-wrapper">
+        <div class="container">
+            <header class="article-header">
+                <div class="site-badge">LearnersLoop Awareness</div>
+                <h1>Important Information: Mandatory E-KYC Update for UDID Card</h1>
+                <div class="meta-info">
+                    <span>Published Date: <strong>25 May 2026</strong></span>
+                    <span>Author: <strong>Aditya Tiwari</strong></span>
+                </div>
+            </header>
 
-        <!-- Intro -->
-        <p>Dear Friends,</p>
-        <p>As you all know, E-KYC has been made strictly mandatory by the government for the Unique Disability (UDID) Card. If you haven't completed your E-KYC yet, your card could be deactivated, which may put a stop to your government benefits and access to various welfare schemes.</p>
+            <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80" alt="Digital Security and Documentation" class="featured-image">
 
-        <!-- Alert / Awareness Box -->
-        <div class="alert-box">
-            <p><strong>⚠️ Stay Alert:</strong> Ever since this update was made mandatory, many bad actors have started charging heavy amounts for this service or are asking you to share your sensitive personal data. Some are even offering to do it for free just to collect your personal documents. <strong>Never share your sensitive government documents or OTPs with anyone.</strong> In this digital era, protecting your personal information is entirely your responsibility.</p>
+            <p>Dear Friends,</p>
+            <p>As you all know, E-KYC has been made strictly mandatory by the government for the Unique Disability (UDID) Card. If you haven't completed your E-KYC yet, your card could be deactivated, which may put a stop to your government benefits and access to various welfare schemes.</p>
+
+            <div class="alert-box">
+                <p><strong>⚠️ Stay Alert:</strong> Ever since this update was made mandatory, many bad actors have started charging heavy amounts for this service or are asking you to share your sensitive personal data. Some are even offering to do it for free just to collect your personal documents. <strong>Never share your sensitive government documents or OTPs with anyone.</strong> In this digital era, protecting your personal information is entirely your responsibility.</p>
+            </div>
+
+            <p>That’s why we are sharing this updated, comprehensive guide on <strong>LearnersLoop</strong> so that you can complete your own UDID E-KYC from your mobile, laptop, or computer—safely, securely, and without depending on anyone else.</p>
+
+            <h2>Step-by-Step Guide to Complete UDID E-KYC</h2>
+            
+            <ol class="steps-list">
+                <li>
+                    <strong>Go to the Official Website:</strong><br>
+                    Open your web browser and visit only the official government portal:
+                    <br><a href="https://swavlambancard.gov.in/" target="_blank" class="web-link">https://swavlambancard.gov.in/</a>
+                </li>
+                <li>
+                    <strong>Login Process:</strong><br>
+                    On the homepage, look for and click on the <strong>“PWD Login”</strong> button.
+                </li>
+                <li>
+                    <strong>Enter Your Details:</strong><br>
+                    You will find three main input boxes on the login page:
+                    <ul class="inner-list">
+                        <li><strong>First box:</strong> Enter your UDID Card Number or Enrollment Number.</li>
+                        <li><strong>Second box:</strong> Enter your Date of Birth (exactly as printed on your UDID card).</li>
+                        <li><strong>Third box:</strong> Solve the Captcha Code (a small text or simple visual query) and type it into the box.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Click Login:</strong><br>
+                    After filling in all three fields accurately, click the <strong>"Login"</strong> button below.
+                </li>
+                <li>
+                    <strong>Navigate to E-KYC Option:</strong><br>
+                    Once your dashboard opens (if you use a screen reader or TalkBack, simply swipe through the interface), navigate to the option titled <strong>“Update e-KYC”</strong> and click it.
+                </li>
+                <li>
+                    <strong>Verify Identity Details:</strong><br>
+                    Your linked government identification number ([Aadhaar Redacted]) will be partially displayed on the screen. Verify your identity details carefully to ensure they match.
+                </li>
+                <li>
+                    <strong>Grant Verification Permission:</strong><br>
+                    Tick the checkbox on the screen to give your consent for official verification. This is entirely safe as it is processed directly through the official government servers.
+                </li>
+                <li>
+                    <strong>Generate OTP:</strong><br>
+                    Now, click on the <strong>“Generate OTP”</strong> button.
+                </li>
+                <li>
+                    <strong>Enter the Verification Code:</strong><br>
+                    A secure 6-digit OTP will be sent to your registered mobile number. Carefully enter it into the designated box and click <strong>"Verify"</strong>.
+                </li>
+                <li>
+                    <strong>Successful Update:</strong><br>
+                    Once successfully verified, a success message will appear on your screen confirming that your E-KYC status has been updated.
+                </li>
+                <li>
+                    <strong>Download Your New Card:</strong><br>
+                    Finally, go back to your main dashboard and click <strong>“Download UDID Card”</strong> to save your newly updated digital card securely on your device.
+                </li>
+            </ol>
+
+            <div class="contact-box">
+                <h3>Need Technical Help?</h3>
+                <p>If you face any technical difficulties, bugs, or accessibility challenges during this process, feel free to reach out to me directly for support. Just send me this exact message on WhatsApp:</p>
+                <p><em>"I want to complete E-KYC of my UDID card"</em></p>
+                <a href="https://wa.me/919258418308" class="whatsapp-btn" target="_blank">Contact on WhatsApp</a>
+                <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-light);"><em>⚠️ Please avoid sending unnecessary or unrelated messages so that I can assist those who genuinely need help on time.</em></p>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Secure digital solution" class="featured-image" style="margin-top: 20px;">
+
+            <div class="final-note">
+                <p><strong>🔐 Final Note:</strong> The goal of this article is not to oppose those who provide assistance, but rather to promote digital literacy and self-reliance among our community. Your documents and your digital security are your own responsibility. Stay alert, and stay protected against online scams!</p>
+            </div>
         </div>
+    </main>
 
-        <p>That’s why we are sharing this updated, comprehensive guide on <strong>LearnersLoop</strong> so that you can complete your own UDID E-KYC from your mobile, laptop, or computer—safely, securely, and without depending on anyone else.</p>
+    <footer>
+        <p>&copy; From 2026 Learners Loop. All Rights Reserved. <br>
+        Designed & Developed by Aditya Tiwari.</p>
+    </footer>
 
-        <!-- Guide Section -->
-        <h2>Step-by-Step Guide to Complete UDID E-KYC</h2>
-        
-        <ol class="steps-list">
-            <li>
-                <strong>Go to the Official Website:</strong><br>
-                Open your web browser and visit only the official government portal:
-                <br><a href="https://swavlambancard.gov.in/" target="_blank" class="web-link">https://swavlambancard.gov.in/</a>
-            </li>
-            <li>
-                <strong>Login Process:</strong><br>
-                On the homepage, look for and click on the <strong>“PWD Login”</strong> button.
-            </li>
-            <li>
-                <strong>Enter Your Details:</strong><br>
-                You will find three main input boxes on the login page:
-                <ul class="inner-list">
-                    <li><strong>First box:</strong> Enter your UDID Card Number or Enrollment Number.</li>
-                    <li><strong>Second box:</strong> Enter your Date of Birth (exactly as printed on your UDID card).</li>
-                    <li><strong>Third box:</strong> Solve the Captcha Code (a small text or simple visual query) and type it into the box.</li>
-                </ul>
-            </li>
-            <li>
-                <strong>Click Login:</strong><br>
-                After filling in all three fields accurately, click the <strong>"Login"</strong> button below.
-            </li>
-            <li>
-                <strong>Navigate to E-KYC Option:</strong><br>
-                Once your dashboard opens (if you use a screen reader or TalkBack, simply swipe through the interface), navigate to the option titled <strong>“Update e-KYC”</strong> and click it.
-            </li>
-            <li>
-                <strong>Verify Identity Details:</strong><br>
-                Your linked government identification number ([Aadhaar Redacted]) will be partially displayed on the screen. Verify your identity details carefully to ensure they match.
-            </li>
-            <li>
-                <strong>Grant Verification Permission:</strong><br>
-                Tick the checkbox on the screen to give your consent for official verification. This is entirely safe as it is processed directly through the official government servers.
-            </li>
-            <li>
-                <strong>Generate OTP:</strong><br>
-                Now, click on the <strong>“Generate OTP”</strong> button.
-            </li>
-            <li>
-                <strong>Enter the Verification Code:</strong><br>
-                A secure 6-digit OTP will be sent to your registered mobile number. Carefully enter it into the designated box and click <strong>"Verify"</strong>.
-            </li>
-            <li>
-                <strong>Successful Update:</strong><br>
-                Once successfully verified, a success message will appear on your screen confirming that your E-KYC status has been updated.
-            </li>
-            <li>
-                <strong>Download Your New Card:</strong><br>
-                Finally, go back to your main dashboard and click <strong>“Download UDID Card”</strong> to save your newly updated digital card securely on your device.
-            </li>
-        </ol>
-
-        <!-- Contact Section -->
-        <div class="contact-box">
-            <h3>Need Technical Help?</h3>
-            <p>If you face any technical difficulties, bugs, or accessibility challenges during this process, feel free to reach out to me directly for support. Just send me this exact message on WhatsApp:</p>
-            <p><em>"I want to complete E-KYC of my UDID card"</em></p>
-            <a href="https://wa.me/919258418308" class="whatsapp-btn" target="_blank">Contact on WhatsApp</a>
-            <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-light);"><em>⚠️ Please avoid sending unnecessary or unrelated messages so that I can assist those who genuinely need help on time.</em></p>
-        </div>
-
-        <!-- Inline Image for visual break -->
-        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Secure digital solution" class="featured-image" style="margin-top: 20px;">
-
-        <!-- Final Note -->
-        <div class="final-note">
-            <p><strong>🔐 Final Note:</strong> The goal of this article is not to oppose those who provide assistance, but rather to promote digital literacy and self-reliance among our community. Your documents and your digital security are your own responsibility. Stay alert, and stay protected against online scams!</p>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 LearnersLoop. Empowering through Knowledge and Awareness.</p>
-        </footer>
-    </div>
-
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
