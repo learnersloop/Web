@@ -1,0 +1,220 @@
+/* --- Global Styles --- */
+:root {
+    --primary: #3498db;
+    --secondary: #2c3e50;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --text-muted: #64748b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+/* --- Navbar (Same as Index) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    background: var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--secondary);
+}
+.logo span { color: var(--primary); }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li a {
+    text-decoration: none;
+    color: var(--secondary);
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
+
+/* --- Mobile Menu Button --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.bar {
+    width: 25px;
+    height: 3px;
+    background: var(--secondary);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* --- Notes Hero --- */
+.notes-hero {
+    background-color: var(--secondary);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.notes-hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+
+/* --- Container & Grid --- */
+.notes-container {
+    padding: 60px 8%;
+    background-color: var(--bg-light);
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+/* --- Note Cards --- */
+.note-card {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.file-type {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-right: 20px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.file-type.coming-soon {
+    background: #cbd5e1;
+    color: #64748b;
+}
+
+.note-info {
+    flex-grow: 1;
+}
+
+.note-info h3 {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    margin-bottom: 5px;
+}
+
+.note-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.note-meta {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    display: flex;
+    gap: 15px;
+}
+
+/* --- Buttons --- */
+.download-btn {
+    text-decoration: none;
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.download-btn:hover {
+    background: #2980b9;
+}
+
+.download-btn.disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+
+    .nav-links.active { display: flex; }
+
+    .nav-links li { text-align: center; padding: 12px 0; }
+
+    .notes-grid {
+        grid-template-columns: 1fr; /* मोबाइल पर एक कॉलम */
+    }
+
+    .note-card {
+        flex-direction: column; /* मोबाइल पर वर्टिकल लेआउट */
+        text-align: center;
+    }
+
+    .file-type {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%; /* पूरी चौड़ाई */
+    }
+
+    .note-meta {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .download-btn {
+        width: 100%; /* मोबाइल पर बटन बड़ा दिखेगा */
+    }
+
+    .notes-hero h1 { font-size: 2rem; }
+}

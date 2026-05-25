@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes - Learners Loop</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notes.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main Navigation">
+            <div class="logo">
+                <a href="index.html">Learners<span>Loop</span></a>
+            </div>
+            <!-- नेविगेशन लिंक्स -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notes.html" class="active">Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- मोबाइल मेनू बटन -->
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Notes Hero Section -->
+        <section class="notes-hero">
+            <h1>Free Study Resources</h1>
+            <p>Download high-quality PDF notes and simplify your learning journey.</p>
+        </section>
+
+        <!-- Notes Grid Section -->
+        <section class="notes-container">
+            <div class="notes-grid">
+                
+                <!-- Note Item 1 -->
+                <div class="note-card">
+                    <div class="file-type">PDF</div>
+                    <div class="note-info">
+                        <h3>Web Development Basics</h3>
+                        <p>Complete guide to HTML tags and CSS properties for beginners.</p>
+                        <div class="note-meta">
+                            <span>Size: 2.5 MB</span>
+                            <span>Pages: 15</span>
+                        </div>
+                    </div>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </div>
+
+                <!-- Note Item 2 -->
+                <div class="note-card">
+                    <div class="file-type">PDF</div>
+                    <div class="note-info">
+                        <h3>JavaScript Cheat Sheet</h3>
+                        <p>Quick reference for functions, loops, and DOM manipulation.</p>
+                        <div class="note-meta">
+                            <span>Size: 1.2 MB</span>
+                            <span>Pages: 5</span>
+                        </div>
+                    </div>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </div>
+
+                <!-- Note Item 3 -->
+                <div class="note-card">
+                    <div class="file-type">PDF</div>
+                    <div class="note-info">
+                        <h3>Web Accessibility Guide</h3>
+                        <p>Best practices for creating screen-reader friendly websites.</p>
+                        <div class="note-meta">
+                            <span>Size: 3.0 MB</span>
+                            <span>Pages: 22</span>
+                        </div>
+                    </div>
+                    <a href="#" class="download-btn">Download PDF</a>
+                </div>
+
+                <!-- Note Item 4 -->
+                <div class="note-card">
+                    <div class="file-type coming-soon">Wait</div>
+                    <div class="note-info">
+                        <h3>Python for Beginners</h3>
+                        <p>Our team is currently preparing notes for Python Programming.</p>
+                        <div class="note-meta">
+                            <span>Size: --</span>
+                            <span>Pages: --</span>
+                        </div>
+                    </div>
+                    <button class="download-btn disabled" disabled>Not Available</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; From 2026 Learners Loop. All Rights Reserved. <br>
+        Designed & Developed by Aditya Tiwari.</p>
+    </footer>
+
+    <!-- मोबाइल मेनू स्क्रिप्ट -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Learners Loop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar" role="navigation">
+            <div class="logo">
+                <a href="index.html">Learners<span>Loop</span></a>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="contact-hero">
+            <h1>Get In Touch</h1>
+            <p>Connect with us directly or send a message below.</p>
+        </section>
+
+        <section class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="icon" aria-hidden="true">📧</div>
+                    <h3>Email Support</h3>
+                    <p>Click below to send us an email.</p>
+                    <a href="mailto:adityatiwariai123@gmail.com" class="action-btn">Email Me</a>
+                </div>
+                
+                <div class="info-card">
+                    <div class="icon" aria-hidden="true">📞</div>
+                    <h3>Phone Call</h3>
+                    <p>Click to reach out via phone.</p>
+                    <a href="tel:+919258418308" class="action-btn">Call Me</a>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon" aria-hidden="true">📍</div>
+                    <h3>Location</h3>
+                    <p>Uttar Pradesh, India</p>
+                </div>
+            </div>
+
+            <div class="form-wrapper" id="form-container">
+                <div id="contact-form-section">
+                    <h2>Send a Message</h2>
+                    <div id="status-message" class="sr-only" aria-live="polite"></div>
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                        <input type="hidden" name="access_key" value="8bf8f9e6-64c9-4fbb-a59a-752921c1b033">
+                        
+                        <div class="input-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn" disabled aria-disabled="true">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div id="success-message" style="display: none; text-align: center;">
+                    <div class="success-icon" style="background: #22c55e; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; color: white; font-size: 2rem; box-shadow: 0 10px 20px rgba(34,197,94,0.2);">✓</div>
+                    <h1 style="color: #2c3e50; margin-bottom: 10px;">Thank You!</h1>
+                    <p style="color: #64748b; margin-bottom: 25px;">Your message has been successfully submitted. We will contact you soon.</p>
+                    
+                    <div style="background: #f8fafc; border-left: 4px solid #3498db; padding: 15px; text-align: left; border-radius: 6px;">
+                        <ul style="list-style: none; font-size: 0.9rem; color: #475569;">
+                            <li>✅ Securely submitted.</li>
+                            <li>⏳ Response time: 12-24 hours.</li>
+                            <li>🚀 Trust Learners Loop.</li>
+                        </ul>
+                    </div>
+                    <button onclick="location.reload()" class="submit-btn" style="margin-top: 20px; background: #3498db;">Send Another Message</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; From 2026 Learners Loop. All Rights Reserved. <br>
+        Designed & Developed by Aditya Tiwari.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active');
+        });
+
+        // Form Logic
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('status-message');
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+
+        form.addEventListener('input', () => {
+            let allFilled = true;
+            inputs.forEach(input => { if (!input.value.trim()) allFilled = false; });
+            
+            submitBtn.disabled = !allFilled;
+            submitBtn.setAttribute('aria-disabled', !allFilled);
+            statusMsg.textContent = allFilled ? "Form is complete. Submit button is available." : "Please fill all fields.";
+        });
+
+        // AJAX Submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    document.getElementById('contact-form-section').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                } else {
+                    alert("Something went wrong!");
+                    submitBtn.innerText = "Send Message";
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                alert("Submission failed.");
+            });
+        });
+    </script>
+</body>
+</html>

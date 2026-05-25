@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Art of Expression - Learners Loop</title>
+    <link rel="stylesheet" href="article3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Learners<span>Loop</span></a>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html" class="active">Blogs</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <article class="main-content">
+            <header class="post-header">
+                <span class="category-badge">Literature & Writing</span>
+                <h1>Beyond Code: Why Every Student Should Write</h1>
+                <p class="post-meta">Published on May 24, 2026 | By Aditya Tiwari</p>
+                <div class="hero-image" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1200');"></div>
+            </header>
+
+            <section class="post-body">
+                <p>In a world increasingly driven by algorithms and code, the human element of storytelling is more valuable than ever. Writing is not just a school subject; it is a fundamental way to find your voice and communicate your unique perspective. At <strong>Learners Loop</strong>, we believe the power of the pen is just as strong as the keyboard.</p>
+
+                <h2>1. Writing as a Thinking Tool</h2>
+                <p>When you put your thoughts on paper, you aren't just recording information; you are organizing your mind. This structural thinking is essential for solving complex problems, whether you are writing a poem or debugging a website.</p>
+                
+                <blockquote class="poetry-snippet">
+                    Words have the power to turn walls into bridges.
+                </blockquote>
+
+                <h2>2. The Intersection of Tech and Literature</h2>
+                <p>Great innovators like Steve Jobs always talked about the intersection of technology and liberal arts. Understanding Hindi literature or English poetry allows you to build products that resonate with people on an emotional level, not just a technical one.</p>
+
+                <h2>3. Documentation is the Key to Success</h2>
+                <p>Even in the professional world of coding and business, being able to write clear documentation and emails is what separates a good professional from a great one. If you can explain your ideas clearly, people will follow your vision.</p>
+
+                <h2>4. Emotional Intelligence</h2>
+                <p>Writing helps you process your emotions and experiences. For a student living in a hostel or managing the pressure of any Class, keeping a journal can be a great way to maintain mental clarity and focus.</p>
+            </section>
+
+            <footer class="post-footer">
+                <div class="author-box">
+                    <h3>About the Author</h3>
+                    <p>Aditya Tiwari is a Class 10 student, coder, and writer[cite: 6]. He believes that true innovation happens when we combine the logic of technology with the soul of literature[cite: 6]. As the founder of <strong>Learners Loop</strong>, he encourages students to explore diverse fields beyond their textbooks.</p>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; From 2026 Learners Loop. All Rights Reserved. <br>
+        Designed & Developed by Aditya Tiwari.</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active');
+        });
+    </script>
+</body>
+</html>

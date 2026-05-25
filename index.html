@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learners Loop - Explore, Learn, Repeat</title>
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- एक्सेसिबिलिटी के लिए स्किप लिंक -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main Navigation">
+            <div class="logo">
+                <a href="index.html">Learners<span>Loop</span></a>
+            </div>
+
+            <!-- नेविगेशन लिंक्स -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <!-- मोबाइल हैमबर्गर बटन -->
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to the Loop of Knowledge</h1>
+                <p>Empowering students with accessible digital education and high-quality learning resources.</p>
+                <div class="hero-btns">
+                    <a href="blogs.html" class="btn btn-primary">Start Reading Blogs</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="section-title">
+                <h2>Why Choose Learners Loop?</h2>
+                <p>We provide the best tools for your academic growth</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">📚</div>
+                    <h3>Quality Notes</h3>
+                    <p>Get access to well-structured, easy-to-understand study notes for various subjects.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💻</div>
+                    <h3>Tech Insights</h3>
+                    <p>Stay updated with the latest trends in technology and web development articles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">♿</div>
+                    <h3>Fully Accessible</h3>
+                    <p>Designed specifically to be screen-reader friendly for visually impaired learners.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-statement">
+            <div class="mission-content">
+                <h2>Our Mission</h2>
+                <p>"To bridge the digital divide by providing free, accessible, and high-quality educational content to every student, regardless of their background or abilities."</p>
+                <p class="author">- Aditya Tiwari, Founder</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; From 2026 Learners Loop. All Rights Reserved. <br>
+        Designed & Developed by Aditya Tiwari.</p>
+    </footer>
+
+    <!-- मोबाइल मेनू के लिए जावास्क्रिप्ट -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // बटन एनीमेशन के लिए क्लास
+            mobileMenu.classList.toggle('is-active');
+        });
+    </script>
+</body>
+</html>

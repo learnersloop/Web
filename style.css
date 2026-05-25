@@ -1,0 +1,185 @@
+/* --- Global Reset & Root Variables --- */
+:root {
+    --primary: #3498db;      /* Professional Blue */
+    --secondary: #2c3e50;    /* Dark Slate */
+    --bg-light: #f4f7f9;
+    --text-muted: #64748b;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--secondary);
+    overflow-x: hidden; /* मोबाइल पर एक्स्ट्रा स्पेस हटाने के लिए */
+}
+
+/* --- Accessibility --- */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--primary);
+    color: white;
+    padding: 10px;
+    z-index: 1001;
+    transition: 0.3s;
+}
+.skip-link:focus { top: 0; }
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8%;
+    background: var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--secondary);
+}
+.logo span { color: var(--primary); }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li a {
+    text-decoration: none;
+    color: var(--secondary);
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.nav-links li a:hover, .nav-links li a.active { color: var(--primary); }
+
+/* --- Mobile Menu Button --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.bar {
+    width: 25px;
+    height: 3px;
+    background: var(--secondary);
+    margin: 4px 0;
+    transition: 0.4s;
+    border-radius: 3px;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), 
+                url('https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1000');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-content h1 { font-size: 3.5rem; margin-bottom: 15px; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-inline: auto; }
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(52,152,219,0.4); }
+.btn-primary:hover { background: #2980b9; transform: translateY(-3px); }
+
+/* --- Features Section --- */
+.features { padding: 80px 8%; background: white; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 2.5rem; }
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    padding: 40px;
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 15px;
+    transition: 0.3s;
+    border-bottom: 4px solid var(--primary);
+}
+.feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.feature-card .icon { font-size: 3rem; margin-bottom: 20px; }
+
+/* --- Mission Section --- */
+.mission-statement {
+    padding: 80px 8%;
+    background: var(--secondary);
+    color: white;
+    text-align: center;
+}
+.mission-content p { font-size: 1.5rem; font-style: italic; max-width: 900px; margin: auto; }
+.author { margin-top: 20px; font-weight: bold; color: var(--primary); }
+
+/* --- Footer --- */
+footer { background: #1a252f; color: #bdc3c7; text-align: center; padding: 40px; }
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+
+    .nav-links {
+        display: none; /* मोबाइल पर नेविगेशन छिपाएं */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 20px 0;
+    }
+
+    /* जब JS से 'active' क्लास लगेगी तब मेनू दिखेगा */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li { text-align: center; padding: 12px 0; }
+    
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1rem; }
+    
+    .section-title h2 { font-size: 2rem; }
+}
+
+/* एनीमेशन के लिए एक्स्ट्रा (Optional) */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-content { animation: fadeInDown 1s ease; }
