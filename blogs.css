@@ -6,7 +6,8 @@
     --text-main: #334155;
     --text-muted: #64748b;
     --white: #ffffff;
-    --awareness-blue: #2563eb; /* Theme matching Article 4 */
+    --awareness-blue: #2563eb; /* आर्टिकल 4 थीम */
+    --global-green: #10b981;    /* आर्टिकल 5 (Global Awareness) थीम */
 }
 
 * {
@@ -75,6 +76,13 @@ body {
     gap: 30px;
 }
 
+/* --- Featured Card Layout (डेस्कटॉप पर बड़ी दिखेगी) --- */
+@media (min-width: 992px) {
+    .layout-featured {
+        grid-column: span 2;
+    }
+}
+
 /* --- Card Styling --- */
 .blog-card {
     background: var(--white);
@@ -91,7 +99,7 @@ body {
 }
 
 .card-img {
-    height: 200px;
+    height: 240px;
     background-size: cover;
     background-position: center;
 }
@@ -114,10 +122,16 @@ body {
     text-transform: uppercase;
 }
 
-/* Awareness Special Badge for Article 4 */
+/* आर्टिकल 4 के लिए स्पेशल बैज */
 .category-badge.badge-awareness {
     background: #eff6ff;
     color: var(--awareness-blue);
+}
+
+/* आर्टिकल 5 के लिए नया स्पेशल बैज (Global Awareness) */
+.category-badge.badge-global {
+    background: #ecfdf5;
+    color: var(--global-green);
 }
 
 .card-body h2 {
@@ -152,9 +166,13 @@ body {
     font-size: 0.9rem;
 }
 
-/* Article 4 Specific Read More Match */
-.layout-featured .read-more {
+/* स्पेशल 'Read More' कलर मैचिंग लिंक्स */
+.category-badge.badge-awareness ~ .card-footer .read-more {
     color: var(--awareness-blue);
+}
+
+.category-badge.badge-global ~ .card-footer .read-more {
+    color: var(--global-green);
 }
 
 /* --- Footer --- */
